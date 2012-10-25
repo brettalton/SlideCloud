@@ -1,4 +1,6 @@
-SlideCloud
-==========
+SlideCloud 
+========== 
+slideshows made simple
+----------------------
 
-share your slideshows
+
