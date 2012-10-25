@@ -1,0 +1,17 @@
+{{! app/templates/layouts/application.mustache }}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{title}}</title>
+
+    {{asset.style.application_css}}
+    {{asset.js.bootstrap_css}}
+ 
+</head>
+<body>
+
+{{yield}}
+
+</body>
+</html>
