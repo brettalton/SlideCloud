@@ -6,7 +6,6 @@ module Views
         "SlideCloud"
       end
       
-      
       def asset
               {
                 :style => {

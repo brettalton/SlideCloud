@@ -1,17 +1,17 @@
 {{! app/templates/layouts/application.mustache }}
-
 <!DOCTYPE html>
 <html>
-<head>
-  <title>{{title}}</title>
-
+  <head>
+    <title>{{title}} - slideshows made simple</title>
     {{asset.style.application_css}}
-    {{asset.js.bootstrap_css}}
- 
-</head>
-<body>
-
-{{yield}}
-
-</body>
+    {{asset.js.application_js}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="container">
+      
+      {{yield}}
+    
+    </div>
+  </body>
 </html>
