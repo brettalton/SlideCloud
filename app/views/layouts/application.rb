@@ -18,7 +18,11 @@ module Views
       end
 
       def sign_up
-        link_to "Sign Up!", user_session_path
+        if user_signed_in?
+          link_to "Log out!", destroy_user_session_path
+        else
+          link_to "Sign Up!", user_session_path
+        end
       end
     
     end
