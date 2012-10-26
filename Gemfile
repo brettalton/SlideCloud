@@ -7,6 +7,7 @@ gem 'rails', '3.2.8'
 
 gem "twitter-bootstrap-rails"
 gem 'mustache-rails', :require => 'mustache/railtie'
+gem 'devise'
 
 
 # Gems used only for assets and not required

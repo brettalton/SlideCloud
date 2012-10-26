@@ -1,10 +1,6 @@
 module Views
   module Layouts
     class Application < ActionView::Mustache
-    
-      def title
-        "SlideCloud"
-      end
       
       def asset
               {
@@ -15,7 +11,15 @@ module Views
                   :application_js => javascript_include_tag('application.js'),          
                 }
               }
-            end
+      end
+
+      def title
+        "SlideCloud"
+      end
+
+      def sign_up
+        link_to "Sign Up!", user_session_path
+      end
     
     end
   end
