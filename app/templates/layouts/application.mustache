@@ -8,9 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+    {{>/shared/navbar_fixed_top_home}}
     <div class="container">
-      <p class="notice">{{notice}}</p>
-       <p class="alert">{{alert}}</p>
+      {{!notice}}
+      {{alert_message}}
       
       {{yield}}
     
