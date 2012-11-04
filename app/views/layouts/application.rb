@@ -17,11 +17,11 @@ module Views
         "SlideCloud"
       end
 
-      def sign_up
+      def sign_in
         if user_signed_in?
           link_to 'Log out!', destroy_user_session_path, :method => :delete
         else
-          link_to 'Sign Up!', user_session_path
+          link_to 'Sign In!', user_session_path
         end
       end
 
