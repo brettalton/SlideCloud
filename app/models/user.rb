@@ -6,6 +6,7 @@ class User
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
   ## Database authenticatable
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
@@ -14,8 +15,8 @@ class User
   field :provider,           :type => String
   field :uid,                :type => String
 
-  validates_presence_of :email
-  validates_presence_of :encrypted_password
+  #validates_presence_of :email
+  #validates_presence_of :encrypted_password
   
   ## Recoverable
   field :reset_password_token,   :type => String
@@ -49,7 +50,7 @@ class User
     where(auth.slice(:provider, :uid)).create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-     # user.username = auth.info.nickname
+      # user.username = auth.info.nickname
     end
   end
   
@@ -63,11 +64,15 @@ class User
       super
     end
   end
-
+          
   def password_required?
     super && provider.blank?
   end
-
+  
+  def email_required?
+    super && provider.blank?
+  end
+          
   def update_with_password(params, *options)
     if encrypted_password.blank?
       update_attributes(params, *options)
