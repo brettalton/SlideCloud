@@ -6,7 +6,6 @@ class User
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-
   ## Database authenticatable
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
@@ -79,6 +78,6 @@ class User
     else
       super
     end
-  end
+  end  
   
 end
