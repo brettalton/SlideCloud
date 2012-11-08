@@ -19,9 +19,9 @@ module Views
 
       def sign_in
         if user_signed_in?
-          link_to 'Log out!', destroy_user_session_path, :method => :delete
+          link_to 'Sign Out', destroy_user_session_path, :method => :delete, :class => "btn" 
         else
-          link_to 'Sign In!', user_session_path
+          link_to 'Sign In', user_session_path, :class => "btn" 
         end
       end
 
@@ -34,7 +34,7 @@ module Views
       def alert_message
           content_tag(:p, alert, :class => 'alert') unless alert.nil?
       end
-    
+      
     end
   end
 end
