@@ -46,7 +46,7 @@ class User
   # field :authentication_token, :type => String
   
   def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid, :email)).create! do |user|
+    where(auth.slice(:provider, :uid, :email)).create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.email = auth.extra.user_hash.email unless user.email.nil?

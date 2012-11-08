@@ -1,9 +1,17 @@
 SlideCloud::Application.routes.draw do
-  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
-
   get "home/index"
-  match 'editor' => 'editor#index'
+  get "my_stuff/index"
 
+  match 'editor' => 'editor#index'
+  match 'myStuff' => 'myStuff#index'
+
+
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  
+  authenticated :user do
+     root :to => 'myStuff#index'
+   end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
