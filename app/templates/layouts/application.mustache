@@ -7,18 +7,16 @@
     {{asset.js.application_js}}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body>
+  <body data-spy="scroll" data-target=".navbar">
 		<!-- Modals *********************** -->
 
 		<!-- ****************************** -->
 		
-    {{>/shared/navbar_fixed_top_home}}		
-    <div class="container">
       {{notice_message}}
       {{alert_message}}
-      
+
       {{yield}}
     
-    </div>
+
   </body>
 </html>
