@@ -4,7 +4,7 @@ module Views
 
 
       def login
-        link_to 'Sign In', user_session_path, :class => "btn btn-large btn-primary", :style => "text-align: center;" 
+        link_to 'All you have to do is signing up', user_session_path, :class => "btn btn-large btn-info", :style => "text-align: center;" 
       end
 
       def logged_in

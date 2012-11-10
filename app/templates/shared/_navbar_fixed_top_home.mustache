@@ -1,17 +1,29 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-    
-    <a class="brand" href="{{root_path}}" text-align="center">{{title}}</a>
-    
-
-      <!-- .nav, .navbar-search, .navbar-form, etc -->
-      <ul class="nav pull-right">
-        <li></li>
-      </ul>
-      <li class="nav pull-right">{{sign_in}}</li>
-      
-      
+ 
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+ 
+      <!-- Be sure to leave the brand out there if you want it shown -->
+      <a class="brand pull-right" href="{{root_path}}">{{title}}</a>
+ 
+      <!-- Everything you want hidden at 940px or less, place within here -->
+      <div class="nav-collapse collapse">
+        <!-- .nav, .navbar-search, .navbar-form, etc -->
+        <ul class="nav">
+              <li class="active"><a href="#sign_in">Hello!</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#slideshows_home">Samples</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#progress">Progress</a></li>
+            </ul>
+      </div>
+ 
     </div>
   </div>
 </div>
