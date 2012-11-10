@@ -8,8 +8,6 @@ SlideCloud::Application.routes.draw do
 
   match 'editor' => 'editor#index'
   match 'myStuff' => 'myStuff#index'
-
-
   
   authenticated :user do
      root :to => 'myStuff#index'
