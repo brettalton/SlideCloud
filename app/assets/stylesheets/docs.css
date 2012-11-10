@@ -10,11 +10,6 @@
 /* Body and structure
 -------------------------------------------------- */
 
-body {
-  position: relative;
-  padding-top: 40px;
-}
-
 /* Code in headings */
 h3 code {
   font-size: 14px;
@@ -24,17 +19,6 @@ h3 code {
 /* Sections
 -------------------------------------------------- */
 
-/* padding for in-page bookmarks and fixed navbar */
-section {
-  padding-top: 30px;
-}
-section > .page-header,
-section > .lead {
-  color: #5a5a5a;
-}
-section > ul li {
-  margin-bottom: 5px;
-}
 
 /* Separators (hr) */
 .bs-docs-separator {
