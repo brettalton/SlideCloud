@@ -1,4 +1,8 @@
 SlideCloud::Application.routes.draw do
+  resources :slideshows
+
+  devise_for :users
+
   get "home/index"
   get "my_stuff/index"
 
