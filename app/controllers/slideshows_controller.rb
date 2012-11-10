@@ -1,8 +1,11 @@
 class SlideshowsController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :get_current_user
   # GET /slideshows
   # GET /slideshows.json
   def index
-    @slideshows = Slideshow.all
+
+    @slideshows = @user.slideshows
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +16,7 @@ class SlideshowsController < ApplicationController
   # GET /slideshows/1
   # GET /slideshows/1.json
   def show
-    @slideshow = Slideshow.find(params[:id])
+    @slideshow = @user.slideshows.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +28,8 @@ class SlideshowsController < ApplicationController
   # GET /slideshows/new.json
   def new
     @slideshow = Slideshow.new
-
+    @user.slideshows << @slideshow
+ 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @slideshow }
@@ -34,13 +38,14 @@ class SlideshowsController < ApplicationController
 
   # GET /slideshows/1/edit
   def edit
-    @slideshow = Slideshow.find(params[:id])
+    @slideshow = @user.slideshows.find(params[:id])
   end
 
   # POST /slideshows
   # POST /slideshows.json
   def create
     @slideshow = Slideshow.new(params[:slideshow])
+    @user.slideshows << @slideshow
 
     respond_to do |format|
       if @slideshow.save
@@ -56,7 +61,8 @@ class SlideshowsController < ApplicationController
   # PUT /slideshows/1
   # PUT /slideshows/1.json
   def update
-    @slideshow = Slideshow.find(params[:id])
+    @slideshow = @user.slideshows.find(params[:id])
+    @user.slideshows << @slideshow
 
     respond_to do |format|
       if @slideshow.update_attributes(params[:slideshow])
@@ -72,7 +78,7 @@ class SlideshowsController < ApplicationController
   # DELETE /slideshows/1
   # DELETE /slideshows/1.json
   def destroy
-    @slideshow = Slideshow.find(params[:id])
+    @slideshow = @user.slideshows.find(params[:id])
     @slideshow.destroy
 
     respond_to do |format|
@@ -80,4 +86,11 @@ class SlideshowsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def get_current_user
+    @user = current_user
+  end
+
 end
