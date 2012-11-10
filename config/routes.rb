@@ -1,7 +1,7 @@
 SlideCloud::Application.routes.draw do
   resources :slideshows
 
-  devise_for :users
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
   get "home/index"
   get "my_stuff/index"
@@ -10,7 +10,6 @@ SlideCloud::Application.routes.draw do
   match 'myStuff' => 'myStuff#index'
 
 
-  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   
   authenticated :user do
      root :to => 'myStuff#index'
