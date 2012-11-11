@@ -4,13 +4,11 @@ SlideCloud::Application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
   get "home/index"
-  get "my_stuff/index"
 
   match 'editor' => 'editor#index'
-  match 'myStuff' => 'myStuff#index'
   
   authenticated :user do
-     root :to => 'myStuff#index'
+     root :to => 'slideshows#index'
    end
   
   # The priority is based upon order of creation:

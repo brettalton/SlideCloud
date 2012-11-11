@@ -7,11 +7,14 @@ class SlideshowsController < ApplicationController
   def index
 
     @slideshows = @user.slideshows
-
+    
+    @graph = Koala::Facebook::GraphAPI.new(current_user.token)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @slideshows }
     end
+    
   end
 
   # GET /slideshows/1
