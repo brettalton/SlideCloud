@@ -1,6 +1,7 @@
 class SlideshowsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :show
   before_filter :get_current_user
+  
   # GET /slideshows
   # GET /slideshows.json
   def index
@@ -16,7 +17,7 @@ class SlideshowsController < ApplicationController
   # GET /slideshows/1
   # GET /slideshows/1.json
   def show
-    @slideshow = @user.slideshows.find(params[:id])
+    @slideshow = Slideshow.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -78,7 +79,8 @@ class SlideshowsController < ApplicationController
   # DELETE /slideshows/1
   # DELETE /slideshows/1.json
   def destroy
-    @slideshow = @user.slideshows.find(params[:id])
+    #@slideshow = @user.slideshows.find(params[:id])
+    @slideshow = Slideshow.find(params[:id])
     @slideshow.destroy
 
     respond_to do |format|

@@ -15,6 +15,17 @@ module Views
         end
       end
 
+      def slideshows
+        @slideshows.map do |s|
+          {
+            :title => s.title,
+            :desc => s.desc,
+            :thumbnail => s.thumbnail,
+            :show_path => slideshow_path(s)
+          }
+        end
+      end
+
     end
   end
 end

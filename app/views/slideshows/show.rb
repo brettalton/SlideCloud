@@ -14,6 +14,14 @@ module Views
 			  link_to 'Back', slideshows_path
 		  end
 
+      def thumbnail_url
+        @slideshow.thumbnail
+      end
+
+      def title
+        @slideshow.title
+      end
+
     end
 	end
 end

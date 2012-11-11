@@ -1,7 +1,8 @@
 module Views
   module Layouts
     class Application < ActionView::Mustache
-      
+      include ActionView::Helpers::CsrfHelper
+
       def asset
               {
                 :style => {
@@ -9,6 +10,9 @@ module Views
                 },
                 :js => {
                   :application_js => javascript_include_tag('application.js'),          
+                },
+                :meta_tags => {
+                  :csrf_meta_tags => "#{csrf_meta_tags()}",
                 }
               }
       end

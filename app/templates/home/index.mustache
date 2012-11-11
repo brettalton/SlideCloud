@@ -1,20 +1,20 @@
 {{>/shared/navbar_fixed_top_home}}		
 
 <div class="container">
-  
+
   <section id="sign_in">
     <div class="row">
       <div class="span12" style="text-align: center;">
-        
+
         <div>  
           <h1 class="sign_in">Slideshows made Simple!</h1>
           <h2 class="lead">Build your own individual Slideshow and Share it with your Friends</h2>
         </div>
-      
+
         <div class="sign_in" style="text-align: center;">
-            {{login}}
+          {{login}}
         </div>
-          
+
       </div>
     </div>
   </section>
@@ -24,9 +24,9 @@
   <section id="about">
     <div class="row">
       <div class="span12" style="text-align: center;">
-    
+
         <p class="lead">SlideCloud. What i am and what i do......</p>
-    
+
       </div>
     </div>
   </section>
@@ -36,8 +36,9 @@
   <section id="slideshows_home">
     <div class="row">
       <div class="span12" style="text-align: center;">
-        
-        <h2 class="lead"> Here's the place for all public Slideshows! </h2>
+        {{#slideshows}}
+          {{>/shared/slideshow}}
+        {{/slideshows}}
 
       </div>
     </div>
@@ -48,9 +49,9 @@
   <section id="team">
     <div class="row">
       <div class="span12" style="text-align: center;">
-    
+
         <p class="lead">Who build me?!? </p>
-    
+
       </div>
     </div>
   </section>
@@ -60,13 +61,13 @@
   <footer id="progress">
     <div class="row">
       <div class="span12">
-    
-    
-          <p class="lead">5% of work is done, more or less. Less...</p>
-          <div class="progress progress-striped active">
-            <div class="bar" style="width: 5%;"></div>
-          </div>
-    
+
+
+        <p class="lead">5% of work is done, more or less. Less...</p>
+        <div class="progress progress-striped active">
+          <div class="bar" style="width: 5%;"></div>
+        </div>
+
       </div>
     </div>	
   </footer>
