@@ -15,7 +15,7 @@ class User
   ## Omniauthable
   field :provider,           :type => String
   field :uid,                :type => String
-  field :fb_token,              :type => String
+  field :token,              :type => String
 
   #validates_presence_of :email
   #validates_presence_of :encrypted_password
@@ -49,11 +49,11 @@ class User
   # field :authentication_token, :type => String
   
   def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid, :token)).create do |user|
+    where(auth.slice(:provider, :uid, :token)).find_or_create_by do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.token = auth.credentials.token.to_s
-      user.email = auth.info.email.to_s
+      user.token = auth.credentials.token
+      user.email = auth.info.email
     end
   end
   

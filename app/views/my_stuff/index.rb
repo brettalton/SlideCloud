@@ -4,7 +4,7 @@ module Views
 
       def sign_out
         if user_signed_in?
-          link_to current_user.to_yaml, destroy_user_session_path, :method => :delete 
+          link_to current_user.email, destroy_user_session_path, :method => :delete 
         else
           link_to 'You shouldnt be here! something went wrong :(', user_session_path
         end
