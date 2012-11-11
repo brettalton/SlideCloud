@@ -15,6 +15,7 @@ class User
   ## Omniauthable
   field :provider,           :type => String
   field :uid,                :type => String
+  field :token,              :type => String
 
   #validates_presence_of :email
   #validates_presence_of :encrypted_password
@@ -48,10 +49,11 @@ class User
   # field :authentication_token, :type => String
   
   def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid, :email)).create do |user|
+    where(auth.slice(:provider, :uid, :token)).find_or_create_by do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.email = auth.extra.user_hash.email unless user.email.nil?
+      user.token = auth.credentials.token
+      user.email = auth.info.email
     end
   end
   
