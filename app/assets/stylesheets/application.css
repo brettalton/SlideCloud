@@ -11,5 +11,6 @@
  *= require_self
  *= require bootstrap_and_overrides
  *= require docs
+ *= require slideshows.css
  *= require_tree .
  */

@@ -11,6 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-1.8.2
+//= require jquery.cross-slide
+//= require slideshows
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
