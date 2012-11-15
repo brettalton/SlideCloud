@@ -33,7 +33,7 @@ $(function() {
     fade: 1
   }, [
     {
-      src:  'assets/sample_slideshow_pics/pic9.png',
+      src:  'assets/sample_slideshow_pics/pic9.jpg',
       alt:  'Sand Castle',
       from: '100% 80% 1x',
       to:   '100% 0% 1.7x',
