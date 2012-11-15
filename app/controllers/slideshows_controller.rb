@@ -43,6 +43,7 @@ class SlideshowsController < ApplicationController
   # GET /slideshows/1/edit
   def edit
     @slideshow = @user.slideshows.find(params[:id])
+    #@slides = @slideshows.slides
   end
 
   # POST /slideshows
