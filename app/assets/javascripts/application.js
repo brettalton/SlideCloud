@@ -15,5 +15,6 @@
 //= require jquery.cross-slide
 //= require slideshows
 //= require jquery_ujs
+//= require jquery-fileupload/basic
 //= require twitter/bootstrap
 //= require_tree .

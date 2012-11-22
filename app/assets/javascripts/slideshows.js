@@ -10,7 +10,7 @@ $(function() {
     { src: 'assets/sample_slideshow_pics/pic2.jpg' },
     { src: 'assets/sample_slideshow_pics/pic3.jpg' },
     { src: 'assets/sample_slideshow_pics/pic4.jpg' }
-  ])
+  ]);
 });
 
 

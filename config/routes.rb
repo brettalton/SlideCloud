@@ -1,4 +1,6 @@
 SlideCloud::Application.routes.draw do
+  get "assetmanager/index"
+
   match 'slideshow/:id/slides/create' => 'slides#create', :as => :slides_create 
 
   delete "slides/destroy"
