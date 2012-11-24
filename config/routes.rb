@@ -5,6 +5,8 @@ SlideCloud::Application.routes.draw do
 
   delete "slides/destroy"
 
+  match 'assetmanager/images/create' => 'images#create', :as => :images_create
+
   resources :slideshows
 
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}

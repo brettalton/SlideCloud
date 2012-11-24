@@ -1,21 +1,4 @@
-<%= form_for(@images) do |f| %>
-<% if @images.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@images.errors.count, "error") %> prohibited this slideshow from being saved:</h2>
-
-      <ul>
-        <% @images.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.file_field :file %></br>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= form_for Image.new, :url => :images_create do |f| %>
+    <%= f.label :image, "Upload paintings:" %>
+    <%= f.file_field :file, :multiple => true, :name => "image[file]" %></br>
 <% end %>

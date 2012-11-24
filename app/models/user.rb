@@ -1,7 +1,7 @@
 class User
   include Mongoid::Document
   has_many :slideshows
-  has_one :assetmanager
+  has_many :images
 
   # Include default devise modules. Others available are:
   # :omniauthable, :token_authenticatable, :confirmable,

@@ -4,8 +4,25 @@
 
 	<h1>Upload your pics</h1>
 
-	{{form}}
+	<div id="images" class="span12">
+		<ul>
+			{{#images_list}}
+	      {{>/shared/image}}
+	   	{{/images_list}}
+	  </ul>
+  </div>
+
+    <div class="span12">
+		{{form}}
+	</div>
 
 	{{back_link}}
 
 </div>
+
+<script id="template-upload" type="text/x-tmpl">
+	<div class="upload">
+  		{%=o.name%}
+  		<div class="progress"><div class="bar" style="width: 0%"></div></div>
+	</div>
+</script>
