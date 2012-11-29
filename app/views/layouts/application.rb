@@ -16,6 +16,10 @@ module Views
                 }
               }
       end
+      
+      def link_to_assetmanager
+        link_to 'Assetmanager', assetmanager_index_path
+      end
 
       def is_logged_in?
         user_signed_in?

@@ -2,12 +2,9 @@ module Views
   module Home
     class Index < Layouts::Application
 
-
-
       def login
         link_to 'All you have to do is signing up', user_session_path, :class => "btn btn-large btn-info", :style => "text-align: center;" 
-      end
-      
+      end      
       
       def facebook_login
         if devise_mapping.omniauthable?
@@ -35,7 +32,6 @@ module Views
           }
         end
       end
-
     end
   end
 end
