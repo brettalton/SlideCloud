@@ -31,7 +31,7 @@ module Views
 
       def sign_in
         if user_signed_in?
-          link_to 'Sign Out', destroy_user_session_path, :method => :delete, :class => "btn" 
+          link_to(current_user.email, destroy_user_session_path, :method => :delete) 
         else
           link_to 'Sign In', user_session_path, :class => "btn" 
         end
