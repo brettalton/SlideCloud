@@ -7,7 +7,7 @@ module Views
     	end
       
       def destroy_image
-        link_to 'Delete',  images_delete_path, { :controller => "images", :action => "destroy", :method => :delete, :confirm => "Really?"}
+        link_to 'Delete',  images_delete_path, { :controller => "images", :action => "destroy", :method => :delete, :confirm => "Really?", :remote => true}
       end
       
     	def form
