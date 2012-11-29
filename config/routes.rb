@@ -5,7 +5,8 @@ SlideCloud::Application.routes.draw do
 
   delete "slides/destroy"
 
-  match 'assetmanager/images/create' => 'images#create', :as => :images_create
+  put 'assetmanager/images/create' => 'images#create', :as => :images_create
+  delete 'assetmanager/images/destroy' => 'images#destroy', :as => :images_delete
 
   resources :slideshows
 

@@ -2,27 +2,21 @@
 
 <div class="container">
 
-	<h1>Upload your pics</h1>
-
+  <div class="row">
+    <div class="span12"  style="padding-top: 100px;">
+      <button class="btn btn-success pull-right" type="button" data-toggle="modal" data-target="#upload_modal">Upload your pics</button>
+    </div>
+  </div>
+  
 	<div id="images" class="span12">
-		<ul>
+		<ul class="unstyled">
 			{{#images_list}}
 	      {{>/shared/image}}
 	   	{{/images_list}}
 	  </ul>
   </div>
-
-    <div class="span12">
-		{{form}}
-	</div>
-
+ 
 	{{back_link}}
 
 </div>
 
-<script id="template-upload" type="text/x-tmpl">
-	<div class="upload">
-  		{%=o.name%}
-  		<div class="progress"><div class="bar" style="width: 0%"></div></div>
-	</div>
-</script>

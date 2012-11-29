@@ -26,8 +26,8 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    #@image = @user.images.find(params[:id])
-    @image = Image.find(params[:id])
+    @image = @user.images.find(params[:id])
+    #@image = Image.find(params[:id])
     @image.destroy
   end
 
