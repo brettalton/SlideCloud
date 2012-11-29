@@ -2,16 +2,6 @@ module Views
   module Slideshows
     class Index < Layouts::Application
 
-
-      def sign_out
-        if user_signed_in?
-          link_to(current_user.email, destroy_user_session_path, :method => :delete) 
-        else
-          link_to 'You shouldnt be here! something went wrong :(', user_session_path
-        end
-      end
-      
-
       def user_email
         @user.email
       end
