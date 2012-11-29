@@ -1,4 +1,9 @@
 <%= form_for Image.new, :url => :images_create do |f| %>
     <%= f.label :image, "Upload paintings:" %>
     <%= f.file_field :file, :multiple => true, :name => "image[file]" %></br>
+    
+    <div class="thumbnail" style="text-align: center;">
+      <h4 class="lead" style="color: grey;">or drop your files here</h4>
+    </div>
+    
 <% end %>
