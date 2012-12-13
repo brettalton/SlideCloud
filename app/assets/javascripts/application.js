@@ -18,4 +18,12 @@
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require twitter/bootstrap
+//= require underscore
+//= require backbone
+//= require slide_cloud
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
 //= require_tree .
