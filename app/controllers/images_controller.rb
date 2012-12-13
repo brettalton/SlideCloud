@@ -1,14 +1,9 @@
 class ImagesController < ApplicationController
-  before_filter :get_current_user 
+  before_filter :get_current_user
 
   def new
     @image = Image.new
     @user.images << @image
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @image }
-    end
   end
   
   def edit
@@ -29,6 +24,12 @@ class ImagesController < ApplicationController
     @image = @user.images.first
     #@image = Image.find(params[:id])
     @image.destroy
+
+    flash[:notice] = "Successfully destroyd"
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private
