@@ -3,7 +3,7 @@ window.SlideCloud =
   Collections: {}
   Views: {}
   Routers: {}
-  initialize: -> alert 'Hello from Backbone!'
+  initialize: -> alert 'Hello, jerk!'
 
-$(document).ready ->
-  SlideCloud.initialize()
+# $(document).ready ->
+#   SlideCloud.initialize()
