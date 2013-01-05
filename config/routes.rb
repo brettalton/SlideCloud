@@ -12,7 +12,8 @@ SlideCloud::Application.routes.draw do
 
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
-  get 'home/index'
+  get 'about/index'
+  get 'samples/index'
 
   match 'editor' => 'editor#index'
   
@@ -69,7 +70,7 @@ SlideCloud::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
+  root :to => redirect("/users/sign_in")
 
   # See how all your routes lay out with "rake routes"
 

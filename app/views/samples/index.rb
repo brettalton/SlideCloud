@@ -1,5 +1,5 @@
 module Views
-  module Home
+  module Samples
     class Index < Layouts::Application
 
       def login
