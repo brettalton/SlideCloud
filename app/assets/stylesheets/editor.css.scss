@@ -7,11 +7,13 @@
 	height:500px;
 }
 
-#editor_canvas {
+#editor_canvas_container {
 	margin-left:2%;
-	width:83%;
-	height:400px;
-	background-color:#FFFFFF;
+	width:82%;
+	height:398px;
+	background-color:#FFFFFF !important;
+	border: 1px solid #000;
+	float:left;
 }
 
 #slidesbar {

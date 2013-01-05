@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-1.8.2
 //= require jquery.cross-slide
+//= require kinetic-v4.2.0.js
 //= require slideshows
 //= require jquery_ujs
 //= require jquery-fileupload/basic
