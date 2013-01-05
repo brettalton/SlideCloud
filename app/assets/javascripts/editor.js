@@ -2,24 +2,36 @@
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$(document).ready(function() {
+var stage;
+var layer;
 
+$(document).ready(function() {
+  init();
+});
+
+var init = function(){
   $(function() {
         $("#slidesbar").selectable();
         $("#thumbs_container").selectable();
   });
 
-  var json = "";
-
-	if($('#editor_canvas_container').length != 0){
-		var stage = new Kinetic.Stage({
+  if($('#editor_canvas_container').length != 0){
+    stage = new Kinetic.Stage({
       container: 'editor_canvas_container',
       width: $('#editor_canvas_container').width(),
       height: $('#editor_canvas_container').height()
     });
-    var layer = new Kinetic.Layer();
+    layer = new Kinetic.Layer();
+  }
+};
 
-    var imageObj = new Image();
+var getSelectedImageSrc = function(){
+  $('#add_pics_modal').modal('hide');
+  createImageObject($('.ui-selected').data('src'));
+};
+
+var createImageObject = function(src){
+  var imageObj = new Image();
 
     imageObj.onload = function() {
       var img = new Kinetic.Image({
@@ -34,17 +46,11 @@ $(document).ready(function() {
 
       // add the layer to the stage
       stage.add(layer);
-      json = stage.toJSON();
-
     }
-  }
 
-  imageObj.src = 'http://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/White_and_yellow_flower.JPG/250px-White_and_yellow_flower.JPG';
-  setTimeout(function(){console.log(json)}, 4000);
+  imageObj.src = src;
+};
 
-});
-
-var getSelectedImageSrc = function(){
-  $('#add_pics_modal').modal('hide');
-  return $('.ui-selected').data('src');
+var getStage = function(){
+  console.log(stage.toJSON());
 };
