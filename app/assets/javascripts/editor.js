@@ -5,7 +5,8 @@
 $(document).ready(function() {
 
   $(function() {
-        $( "#slidesbar" ).selectable();
+        $("#slidesbar").selectable();
+        $("#thumbs_container").selectable();
   });
 
   var json = "";
