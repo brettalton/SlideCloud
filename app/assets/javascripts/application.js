@@ -15,6 +15,7 @@
 //= require jquery.cross-slide
 //= require kinetic-v4.2.0.js
 //= require slideshows
+//= require jquery-ui-1.9.2.custom.js
 //= require jquery_ujs
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl

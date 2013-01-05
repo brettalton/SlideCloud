@@ -4,6 +4,12 @@
 
 $(document).ready(function() {
 
+  $(function() {
+        $( "#slidesbar" ).selectable();
+  });
+
+  var json = "";
+
 	if($('#editor_canvas_container').length != 0){
 		var stage = new Kinetic.Stage({
       container: 'editor_canvas_container',
@@ -27,9 +33,12 @@ $(document).ready(function() {
 
       // add the layer to the stage
       stage.add(layer);
+      json = stage.toJSON();
+
     }
   }
 
   imageObj.src = 'http://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/White_and_yellow_flower.JPG/250px-White_and_yellow_flower.JPG';
-  console.log(stage.toJSON());
+  setTimeout(function(){console.log(json)}, 4000);
+
 });

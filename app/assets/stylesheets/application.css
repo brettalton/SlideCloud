@@ -12,5 +12,6 @@
  *= require bootstrap_and_overrides
  *= require docs
  *= require slideshows.css
+ *= require jquery-ui-1.9.2.custom.css
  *= require_tree .
  */
