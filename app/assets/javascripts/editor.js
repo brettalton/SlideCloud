@@ -43,3 +43,8 @@ $(document).ready(function() {
   setTimeout(function(){console.log(json)}, 4000);
 
 });
+
+var getSelectedImageSrc = function(){
+  $('#add_pics_modal').modal('hide');
+  return $('.ui-selected').data('src');
+};
