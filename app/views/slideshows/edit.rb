@@ -8,6 +8,10 @@ module Views
           :remote => true, 
           :class => "btn"
     	end
+
+      def save_slide_btn
+
+      end
       
     	def images_list
     		@user.images.each

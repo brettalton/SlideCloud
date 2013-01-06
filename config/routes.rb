@@ -14,8 +14,6 @@ SlideCloud::Application.routes.draw do
 
   get 'about/index'
   get 'samples/index'
-
-  match 'editor' => 'editor#index'
   
   authenticated :user do
      root :to => 'slideshows#index'

@@ -4,12 +4,11 @@
 
 #editor_container {
 	margin:80px auto;
-	height:500px;
 }
 
 #editor_canvas_container {
-	margin-left:2%;
-	width:82%;
+	margin-left:24px;
+	width:800px;
 	height:398px;
 	background-color:#FFFFFF !important;
 	border: 1px solid #000;
@@ -17,7 +16,7 @@
 }
 
 #slidesbar {
-	width:15%;
+	width:200px;
 	overflow-y:scroll;
 	height:400px;
 	background-color:#FCF8E3;
