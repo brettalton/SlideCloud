@@ -51,6 +51,6 @@ var createImageObject = function(src){
   imageObj.src = src;
 };
 
-var getStage = function(){
-  console.log(stage.toJSON());
+var saveStageToSlide = function(){
+  return stage.toJSON();
 };
