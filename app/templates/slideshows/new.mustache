@@ -9,3 +9,22 @@
 	{{back_link}}
 
 </div>
+
+
+<div id="add_pics_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Select Pictures for your amazing Slide</h3>
+  </div>
+  <div class="modal-body">
+    <ul id="thumbs_container" class="thumbnails">
+		  {{#images_list}}
+        {{>/shared/modal/add_pics_to_slide/imageview_in_selector}}
+   	  {{/images_list}}
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <a href="#" data-dismiss="modal" aria-hidden="true" class="btn">Close</a>
+    <a href="javascript:getSelectedImageSrc()" class="btn btn-primary">Save changes</a>
+  </div>
+</div>

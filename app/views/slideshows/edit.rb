@@ -6,7 +6,7 @@ module Views
     		link_to "Create", slides_create_path(@slideshow.id), 
           :method => :post, 
           :remote => true, 
-          :class => "btn"
+          :class => "btn btn-small"
     	end
 
       def save_slide_btn

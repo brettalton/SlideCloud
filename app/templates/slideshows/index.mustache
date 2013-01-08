@@ -7,13 +7,13 @@
       <div class="span2">
       
         <ul class="nav nav-pills nav-stacked">
-          <li>
+          <!-- <li>
             <h2>my...</h2>
             <h4><a href="#" >... Slideshows!</a></h4>
-          </li>
+          </li> -->
           <li>
             <h2>create...</h2>
-            <h4><a href="#" class="breadcrump">... a new one!</a></h4> </br> 
+            <h4>{{link_new}}</h4> </br> 
           </li>
         </ul>
       
@@ -23,10 +23,8 @@
     
       <!-- Main content ****************************************** -->
       <div class="span9">
-        <p class="lead">...here!</p>
     
-    
-      	<h1>Listing slideshows</h1>
+      	<h1>{{headline}}</h1>
 
       	<ul class="thumbnails">
       		{{#slideshows}}
@@ -35,9 +33,6 @@
       	</ul>
 
       	<br />
-	
-      	{{link_new}}
-
     
         <!-- JUST FOR TESTING -->
         <!-- <img src="{{fb_profile_picture}}">
