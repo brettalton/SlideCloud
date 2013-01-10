@@ -3,7 +3,7 @@ module Views
     class Edit < Layouts::Application
 
     	def create_slide_btn
-    		link_to "Create", slides_create_path(@slideshow.id), 
+    		link_to "Create new slide", slides_create_path(@slideshow.id), 
           :method => :post, 
           :remote => true, 
           :class => "btn btn-small"

@@ -15,7 +15,7 @@ module Views
       end
 
     	def link_new
-    		link_to '... a new Slideshow!', new_slideshow_path, :class => "breadcrump"
+    		link_to '... a new Slideshow!', new_slideshow_path, :class => "breadcrump lead"
     	end
 
     	def slideshows
