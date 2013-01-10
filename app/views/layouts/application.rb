@@ -20,7 +20,23 @@ module Views
       def link_to_assetmanager
         link_to 'Assetmanager', assetmanager_index_path
       end
+      
+      def link_to_home
+        link_to 'Hello!', root_path
+      end
+      
+      def link_to_login
+        link_to 'Sign In!', root_path
+      end
+      
+      def link_to_about
+        link_to 'About', about_index_path
+      end
 
+      def link_to_samples
+        link_to 'Samples', samples_index_path
+      end
+      
       def is_logged_in?
         user_signed_in?
       end

@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class SamplesController < ApplicationController
   def index
   	@slideshows = Slideshow.all
   end

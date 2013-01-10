@@ -1,20 +1,56 @@
-<div class="navbar navbar-fixed-top">
+<div class="trans navbar navbar-fixed-top">
   <div class="navbar-inner">
-    <div class="container"> 
-      <%= link_to 'SlideCloud', root_path,  :class => 'brand' %>
+    <div class="container">
+ 
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+ 
+      <!-- Be sure to leave the brand out there if you want it shown -->
+      <%= link_to 'SlideCloud', root_path , :class => "brand pull-right" %>
+ 
+      <!-- Everything you want hidden at 940px or less, place within here -->
+      <div class="nav-collapse collapse">
         <!-- .nav, .navbar-search, .navbar-form, etc -->
-        <ul class="nav pull-right">
-          <li>
-            <%= link_to 'bring me back', :back %>
-          </li>
-        </ul>
+        <ul class="nav">
+              <li><a href="#sign_in">Hello!</a></li>
+              <li><%= link_to 'About', about_index_path %></li>
+              <li><%= link_to 'Samples', samples_index_path %></li>
+            </ul>
+      </div>
+ 
     </div>
   </div>
 </div>
 
-<div class="container">
+  
+<section class="home" style="background: #888888; min-height: 500px;">
+  <div class="container">
+    
+    <div class="row" style="text-align: center; margin-left: 0px; margin-right: 0px;">
+      <h1 style="color: #ffffff;">Latest from the Showcase</h1>
+    </div>
+    <div id="myCarousel" class="carousel slide span8 offset2">
+      <!-- Carousel items -->
+      <div class="carousel-inner" style="max-height: 365px;">
+        <div class="active item"><%= image_tag "sample_slideshow_pics/pic1.jpg" %></div>
+        <div class="item"><%= image_tag "sample_slideshow_pics/pic4.jpg" %></div>
+        <div class="item"><%= image_tag "sample_slideshow_pics/pic3.jpg" %></div>
+      </div>
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+      
+  </div>
+    
+</section> 
 
-  <section class="omniauthable_facebook">
+<section class="omniauthable_facebook">
+  <div class="container">
     <div class="row">
     
       <div class="span12" style="text-align: center;">
@@ -22,13 +58,15 @@
       </div>
     
     </div>
-  </section>
+  </div>
+</section>
     
-  <section class="devise">  
+<section class="devise"> 
+  <div class="container"> 
     <div class="row">
      
       <div class="span12">
-        <p class="lead">...you can also use our old fashioned login:</p>
+        <p class="lead">...you can also use our old fashioned login</p>
       </div>
               
         <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-inline"}) do |f| %>
@@ -50,7 +88,32 @@
           <%= render "devise/shared/links" %>
         </div>
     </div>
-  </section>
-  
   </div>
 </section>
+
+<section class="footer" id="progress">
+  <div class="container">
+    
+    <div class="row">
+      <div class="span12">
+    
+    
+          <p class="lead">70% of work is done, more or less. Less...</p>
+          <div class="progress progress-striped active">
+            <div class="bar" style="width: 70%;"></div>
+          </div>
+    
+      </div>
+      <div class="span12" style="text-align:right;">
+        <br>
+        <br>
+        <br>
+        <p class="lead">Build by Martin Fleischer & Johannes Dirr</p>
+        <p>Multimedia Engineering II # WS 2012/2013</p>
+        <p>Beuth Hochschule für Technik Berlin</p>
+      </div>
+    </div>
+      
+  </div>    	
+</section>
+
