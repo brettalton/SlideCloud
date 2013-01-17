@@ -13,12 +13,16 @@
 //= require jquery
 //= require jquery-1.8.2
 //= require jquery.cross-slide
-//= require kinetic-v4.2.0.js
-//= require slideshows
-//= require jquery-ui-1.9.2.custom.js
+//= require kinetic-v4.2.0
+//= require jquery-ui-1.9.2.custom
 //= require jquery_ujs
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require twitter/bootstrap
+//= require mustache
+
+//= require slideshows
 //= require slide_cloud
+//= require select_slide
+//= require connectionManager
 //= require_tree .

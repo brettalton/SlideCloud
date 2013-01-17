@@ -32,7 +32,10 @@ class SlideshowsController < ApplicationController
   # GET /slideshows/new.json
   def new
     @slideshow = Slideshow.new
+    @slideshow.slides << Slide.new
     @user.slideshows << @slideshow
+    @slide = @slideshow.slides.first
+    @slide.update_attributes(:stage => {"attrs"=>{"width"=>960,"height"=>540,"visible"=>true,"listening"=>true,"opacity"=>1,"x"=>0,"y"=>0,"scale"=>{"x"=>1,"y"=>1},"rotation"=>0,"offset"=>{"x"=>0,"y"=>0},"draggable"=>false},"nodeType"=>"Stage","children"=>[]})
  
     respond_to do |format|
       format.html # new.html.erb

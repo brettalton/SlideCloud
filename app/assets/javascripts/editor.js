@@ -1,33 +1,61 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+var Editor = function(){
 
-var stage;
-var layer;
+  this.loaded_slideshow;
+  this.slideshow;
+  this.stage;
+  this.layer;
+  this.slideshow_id = $("#editor_canvas_container").data("slideshow");
+
+  this.init = function(){
+    this.connection = new ConnectionManager("http://localhost:3000");
+    this.connection.loadSlideshow();
+    window.addEventListener('slideSelectedEvent', function(e) { 
+      console.log(e.detail.slide_id); 
+    });
+    $(".slide_thumb_container:first").click();
+    $( "#slidesbar" ).sortable();
+    $("#thumbs_container").selectable();
+    console.log("editor successfull initalised");
+  };
+
+  this.setSlideshowVariables = function(json){
+    editor.loaded_slideshow = new Slideshow(json);
+    editor.slideshow = new Slideshow(json);
+  };
+
+  this.loadStage = function(){
+    var json = JSON.stringify(this.selectedSlide().stage);
+    console.log(json);
+    editor.stage = Kinetic.Node.create(json,'editor_canvas_container');
+    //editor.layer = stage.getChildren()[0] != undefined ? stage.getChildren()[0] :new Kinetic.Layer();
+  };
+
+  this.selectedSlide = function(){
+  var selectedSlideId = $(".selected:first").attr("id");
+  for(var i=0; i<this.slideshow.slides.length; i++){
+   if( "" + this.slideshow.slides[i].id == selectedSlideId ) 
+    return this.slideshow.slides[i];
+  }
+  return undefined;
+};
+
+};
+
 
 $(document).ready(function() {
-  init();
-});
-
-var init = function(){
-  $(function() {
-        $("#slidesbar").selectable();
-        $("#thumbs_container").selectable();
-  });
-
-  if($('#editor_canvas_container').length != 0){
-    stage = new Kinetic.Stage({
-      container: 'editor_canvas_container',
-      width: $('#editor_canvas_container').width(),
-      height: $('#editor_canvas_container').height()
-    });
-    layer = new Kinetic.Layer();
+  //$.getScript("assets/slides.js").done(function(console.log("scripts loaded")));
+  if($('#editor_canvas_container').length != 0){  
+    editor = new Editor();
+    editor.init();
   }
-};
+});
 
 var getSelectedImageSrc = function(){
   $('#add_pics_modal').modal('hide');
-  createImageObject($('.ui-selected').data('src'));
+  createImageObject($('.ui-selected:first').data('src'));
 };
 
 var createImageObject = function(src){
@@ -49,8 +77,4 @@ var createImageObject = function(src){
     }
 
   imageObj.src = src;
-};
-
-var saveStageToSlide = function(){
-  return stage.toJSON();
 };
