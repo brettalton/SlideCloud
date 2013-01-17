@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-jQuery ->
+jQuery ->  
   $('#new_image').fileupload
     dataType: "script"
     add: (e, data) ->
@@ -18,5 +18,25 @@ jQuery ->
       if data.context
         progress = parseInt(data.loaded / data.total * 100, 10)
         data.context.find('.bar').css('width', progress + '%')
-
-
+    $("#selectable").selectable({selected: onSelect, filter: "div"})
+  
+onSelect = () ->  
+  selectedElements = $(".ui-selected") 
+  selectedElements
+  
+@destroyAllSelectedImages = () ->
+  selectedElements = $(".ui-selected") 
+  selectedElements.each () ->
+    elementId = $(this).data('id')
+    json = JSON.stringify {"id":elementId }
+    $.ajax {
+      url: "http://localhost:3000/assetmanager/images/destroy",
+      type: "DELETE",
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      data: json,
+      success: () -> 
+        $(".ui-selected").parent().remove()
+    }
+    true
+  true

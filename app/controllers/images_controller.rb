@@ -21,14 +21,13 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    @image = @user.images.first
-    #@image = Image.find(params[:id])
+    @image = @user.images.find(params[:id])
     @image.destroy
 
     flash[:notice] = "Successfully destroyd"
+    
     respond_to do |format|
-      format.html
-      format.js
+      format.json { head :no_content }  
     end
   end
 

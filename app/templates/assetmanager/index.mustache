@@ -5,18 +5,24 @@
   <div class="row">
     <div class="span12"  style="padding-top: 100px;">
       <button class="btn btn-success pull-right" type="button" data-toggle="modal" data-target="#upload_modal">Upload your pics</button>
+      {{destroy_all_selected_images}}
+      <a href="javascript:destroyAllSelectedImages()">test</a>
+      
     </div>
   </div>
   
-	<div id="images" class="span12">
-		<ul class="unstyled">
-			{{#images_list}}
-	      {{>/shared/image}}
-	   	{{/images_list}}
-	  </ul>
+  <div class="row">
+  	<div id="images" class="span12">
+  		<ul id="selectable" class="unstyled" style="width: auto; height: auto;"> <!--id="selectable"-->
+  			{{#images_list}}
+  	      {{>/shared/image}}
+  	   	{{/images_list}} 
+  	  </ul>
+    </div>
   </div>
  
 	{{back_link}}
+  
 
 </div>
 
