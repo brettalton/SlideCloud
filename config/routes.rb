@@ -1,6 +1,6 @@
 SlideCloud::Application.routes.draw do
   
-  resources :slideshows do
+  resources :slideshows, :except => :new do
     resources :slides, :except => :edit
   end
 

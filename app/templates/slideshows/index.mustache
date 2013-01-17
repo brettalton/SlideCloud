@@ -61,7 +61,7 @@ var createSlideshow = function() {
   var slideshowDesc = $('#slideshow_desc').val();
   var data = JSON.stringify({ "title": slideshowTitle, "desc": slideshowDesc});
   
-  connection.httpPostRequest('slideshows', data, function(data) {
+  var callback = function(data) {
     $.ajax({
   		url: connection.appURL + "slideshows",
   		type: "GET",
@@ -69,11 +69,15 @@ var createSlideshow = function() {
   		dataType: "html",
   		data: data,
   		success: function(data){
-  			var c = $("li.slideshow_thumb:last-child", data);
+    		var c = $("li.slideshow_thumb:last-child", data);
         $('#new_slideshow_modal').modal('hide')
         $('.thumbnails').append(c);   
+        if ($('h1').html() == 'Create a new Slideshow!')
+          $('h1').html('Your Slideshows'); 
   		}
   	});
-  });
+  };
+  
+  connection.httpPostRequest('slideshows', data, callback);
 };
 </script>
