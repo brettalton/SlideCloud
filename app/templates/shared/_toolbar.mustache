@@ -12,18 +12,24 @@
       <div class="nav-collapse">
         <!-- .nav, .navbar-search, .navbar-form, etc -->
         <ul class="nav">
-          
-          <form class="navbar-form pull-left">
-
-      			<a href="javascript:editor.connection.createNewSlide()" class="btn btn-small">New Slide</a>
-
-            <a data-toggle="modal" data-target="#add_pics_modal" href="#add_pics_modal" class="btn btn-small">Add Pics to slide</a>
-            
-            <a href="javascript:editor.connection..saveStageToSlide()" class="btn btn-small">Save</a>
-
+          <form class="navbar-form">
+      			<a href="javascript:editor.connection.createNewSlide()" class="btn btn-small">new slide</a>
           </form>
-          
         </ul>
+        <ul class="nav">
+          <li class="divider-vertical"></li>
+        </ul>
+        <ul class="nav">
+          <form class="navbar-form">
+            <a data-toggle="modal" data-target="#add_pics_modal" href="#add_pics_modal" class="btn btn-small">add pics to slide</a>
+            <a href="javascript:showTextEdit()" class="btn btn-small">add text to slide</a>          
+          </form>
+        </ul>
+        <ul class="pull-right">
+          <form class="navbar-form">
+            <a href="javascript:editor.connection.saveStageToSlide()" class="btn btn-success">save</a>
+          
+          </form>
       </div>
     
     </div>
