@@ -35,10 +35,28 @@
     </div>
     <div id="myCarousel" class="carousel slide span8 offset2">
       <!-- Carousel items -->
-      <div class="carousel-inner" style="max-height: 365px;">
-        <div class="active item"><%= image_tag "sample_slideshow_pics/pic1.jpg" %></div>
-        <div class="item"><%= image_tag "sample_slideshow_pics/pic4.jpg" %></div>
-        <div class="item"><%= image_tag "sample_slideshow_pics/pic3.jpg" %></div>
+      <div class="carousel-inner">
+        <div class="active item" style="height: 540px; width: 960px;">
+          <%= image_tag "sample_slideshow_pics/pic1.jpg", :width => "100% ;" %>
+          <div class="carousel-caption">
+            <h4>This is a Sample Slide description</h4>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore <br> magna aliquyam erat, sed diam voluptua.</p>
+          </div>
+        </div>
+        <div class="item" style="height: 540px; width: 960px;">
+          <%= image_tag "sample_slideshow_pics/pic4.jpg", :width => "100%;" %>
+          <div class="carousel-caption">
+            <h4>This is a Sample Slide description</h4>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore <br> magna aliquyam erat, sed diam voluptua.</p>
+          </div>
+        </div>
+        <div class="item" style="height: 540px; width: 960px;">
+          <%= image_tag "sample_slideshow_pics/pic3.jpg", :width => "100%;"  %>
+          <div class="carousel-caption">
+            <h4>This is a Sample Slide description</h4>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore <br> magna aliquyam erat, sed diam voluptua.</p>
+          </div>
+        </div>
       </div>
       <!-- Carousel nav -->
       <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>

@@ -8,17 +8,17 @@
 
 #editor_canvas_container {
 	margin-left:24px;
-	width:800px;
-	height:398px;
+	width:960px;
+	height:540px;
 	background-color:#FFFFFF !important;
 	border: 1px solid #000;
 	float:left;
 }
 
 #slidesbar {
-	width:200px;
+	width:150px;
 	overflow-y:scroll;
-	height:400px;
+	height:540px;
 	background-color:#FCF8E3;
 	margin:0px;
 	float:left;
@@ -28,6 +28,7 @@
 	float:none;
 	margin:0px;
 	padding:10px;
+	cursor:pointer;
 }
 
 #toolbar .navbar{
@@ -43,7 +44,12 @@
 	//border-color:#C09853;
 }
 
-.ui-selected a {
+.selected {
+	border: 3px solid #777;
+	background-color: #777;
+}
+
+.ui-selected {
 	border: 3px solid #777;
 	background-color: #777;
 }

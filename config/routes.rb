@@ -1,19 +1,17 @@
 SlideCloud::Application.routes.draw do
-  get "assetmanager/index"
+  
+  resources :slideshows, :except => :new do
+    resources :slides, :except => :edit
+  end
 
-  post 'slideshow/:id/slides/create' => 'slides#create', :as => :slides_create 
-
-  delete "slides/destroy"
+  get "assetmanager/index" 
+  get 'about/index'
+  get 'samples/index'
 
   post 'assetmanager/images/create' => 'images#create', :as => :images_create
   delete 'assetmanager/images/destroy' => 'images#destroy', :as => :images_delete
 
-  resources :slideshows
-
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
-
-  get 'about/index'
-  get 'samples/index'
   
   authenticated :user do
      root :to => 'slideshows#index'

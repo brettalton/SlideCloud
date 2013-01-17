@@ -1,23 +1,46 @@
+<div class="trans navbar navbar-fixed-top">
+
+</div>
+
+
+<div class="container" style="margin-top: 60px;">
 <h2>Sign up</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <% if f.object.email_required? %>
-    <div><%= f.label :email %><br />
+    <div><%= f.label :email %>
     <%= f.email_field :email %></div>
   <% end %>
-
+  <br>
   <% if f.object.password_required? %>
-    <div><%= f.label :password %><br />
+    <div><%= f.label :password %>
     <%= f.password_field :password %></div>
-  
-    <div><%= f.label :password_confirmation %><br />
+  <br>
+    <div><%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %></div>
   <% end %>
-  
+  <br>
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
 
+</div>
+<script>
+  $(document).ready(function() {
+    var connection = new ConnectionManager('http://localhost:3000/');
+    $.ajax({
+  		url: connection.appURL,
+  		type: "GET",
+  		contentType: 'application/json; charset=utf-8',
+  		dataType: "html",
+  		success: function(data){
+    		var c = $(".navbar-inner", data);
+        $('.navbar').append(c);
+  		  console.log(c);
+      }
+  	});   
+  });
+</script>
