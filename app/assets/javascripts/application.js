@@ -21,8 +21,4 @@
 //= require twitter/bootstrap
 //= require mustache
 
-//= require slideshows
-//= require slide_cloud
-//= require select_slide
-//= require connectionManager
 //= require_tree .

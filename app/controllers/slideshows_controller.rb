@@ -54,6 +54,12 @@ class SlideshowsController < ApplicationController
   # POST /slideshows.json
   def create
     @slideshow = Slideshow.new(params[:slideshow])
+    
+    # slides = params[:slides]
+    # slides.each do |slide|
+    #   @slideshow.slides << Slide.new(slide)
+    # end
+    
     @user.slideshows << @slideshow
 
     respond_to do |format|
