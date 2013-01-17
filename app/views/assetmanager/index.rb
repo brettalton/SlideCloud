@@ -11,7 +11,7 @@ module Views
       end
       
       def destroy_all_selected_images
-        link_to_function 'Delete all Selected Images', 'javascript:destroyAllSelectedImages()'
+        link_to_function 'Delete all Selected Images', 'javascript:destroySelectedImages()'
       end
       
     	def form

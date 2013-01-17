@@ -47,6 +47,6 @@ onSelect = () ->
   selectedElements.each () ->
     elementId = $(this).data('id')
     json = JSON.stringify {"id":elementId }
-    connection.httpDeleteRequest 'assetmanager/images/destroy', json, () ->
+    connection.httpDeleteRequest 'assetmanager/images/destroy', json, (data) ->
       $(".ui-selected").parent().remove()
     true

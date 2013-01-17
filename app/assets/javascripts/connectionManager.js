@@ -1,5 +1,6 @@
 var ConnectionManager = function(appURL){
 	this.appURL = appURL;
+};
 
 ConnectionManager.prototype.httpGetRequest = function(url, data, callback){
 	$.ajax({
