@@ -24,19 +24,29 @@ onSelect = () ->
   selectedElements = $(".ui-selected") 
   selectedElements
   
-@destroyAllSelectedImages = () ->
+#@destroyAllSelectedImages = () ->
+# selectedElements = $(".ui-selected") 
+# selectedElements.each () ->
+#   elementId = $(this).data('id')
+#   json = JSON.stringify {"id":elementId }
+#   $.ajax {
+#     url: "http://localhost:3000/assetmanager/images/destroy",
+#     type: "DELETE",
+#     contentType: "application/json; charset=utf-8",
+#     dataType: "json",
+#     data: json,
+#     success: () -> 
+#       $(".ui-selected").parent().remove()
+#   }
+#   true
+# true
+  
+@destroySelectedImages = () ->
   selectedElements = $(".ui-selected") 
+  connection = new ConnectionManager('http://localhost:3000/')
   selectedElements.each () ->
     elementId = $(this).data('id')
     json = JSON.stringify {"id":elementId }
-    $.ajax {
-      url: "http://localhost:3000/assetmanager/images/destroy",
-      type: "DELETE",
-      contentType: "application/json; charset=utf-8",
-      dataType: "json",
-      data: json,
-      success: () -> 
-        $(".ui-selected").parent().remove()
-    }
+    connection.httpDeleteRequest 'assetmanager/images/destroy', json, () ->
+      $(".ui-selected").parent().remove()
     true
-  true
