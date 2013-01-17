@@ -17,7 +17,6 @@ gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'sprockets'
 gem 'rmagick'
-gem 'backbone-on-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
