@@ -1,3 +1,10 @@
+<script>
+(function(){
+  $.scrollTo('#login', 1000, {offset: {top:-120, left:-295} }  );
+});
+
+</script>
+
 <div class="trans navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
@@ -16,10 +23,13 @@
       <div class="nav-collapse collapse">
         <!-- .nav, .navbar-search, .navbar-form, etc -->
         <ul class="nav">
-              <li><a href="#sign_in">Hello!</a></li>
-              <li><%= link_to 'About', about_index_path %></li>
-              <li><%= link_to 'Samples', samples_index_path %></li>
-            </ul>
+          <li><a href="#sign_in">Hello!</a></li>
+          <li><%= link_to 'About', about_index_path %></li>
+          <li><%= link_to 'Samples', samples_index_path %></li>          
+        </ul>
+        <ul class="nav pull-right">
+          <li class="pull-right"><a href="#login">Sign in</a></li>
+        </ul>
       </div>
  
     </div>
@@ -27,12 +37,13 @@
 </div>
 
   
-<section class="home" style="background: #888888; min-height: 500px;">
+<section class="home" style="background: #888888; min-height: 480px;">
   <div class="container">
     
-    <div class="row" style="text-align: center; margin-left: 0px; margin-right: 0px;">
+    <div class="row" style="text-align: left; margin-left: 0px; margin-right: 0px; margin-top: -10px;">
       <h1 style="color: #ffffff;">Latest from the Showcase</h1>
     </div>
+    <hr class="soften" style="margin-top: -5px; margin-bottom: 20px; margin-left: 2px;margin-right: 2px; background-color: white;">
     <div id="myCarousel" class="carousel slide span8 offset2">
       <!-- Carousel items -->
       <div class="carousel-inner">
@@ -67,7 +78,7 @@
     
 </section> 
 
-<section class="omniauthable_facebook">
+<section id="login" class="omniauthable_facebook">
   <div class="container">
     <div class="row">
     
@@ -134,4 +145,5 @@
       
   </div>    	
 </section>
+
 
