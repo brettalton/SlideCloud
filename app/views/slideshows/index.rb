@@ -15,8 +15,17 @@ module Views
       end
 
     	def link_new
-    		link_to '... a new Slideshow!', new_slideshow_path, :class => "breadcrump lead"
+    		link_to_function '... a new Slideshow!', 'showModal()', :class => "breadcrump lead"
     	end
+      
+      def form
+        "#{render 'form'}".html_safe
+      end
+
+      def create_slideshow 
+        link_to_function 'Save', 'createSlideshow()', :class => "btn btn-primary"
+        #link_to 'Save', slideshows_path, {:method => :post, :remote => true, :class => "btn btn-primary"}
+      end
 
     	def slideshows
     		@slideshows.map do |s|

@@ -5,6 +5,7 @@ class SlideshowsController < ApplicationController
   # GET /slideshows
   # GET /slideshows.json
   def index
+    @slideshow = Slideshow.new
 
     @slideshows = @user.slideshows
     
