@@ -1,7 +1,3 @@
-$(document).ready(function() {
-	setSelectableSlides();
-});
-
 var setSelectableSlides = function(){
 
 	$(".slide_thumb_container").click(function() {

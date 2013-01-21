@@ -12,7 +12,7 @@ Slideshow.prototype.getSlides = function(){
 };
 
 Slideshow.prototype.toJSON = function(){
-	var json = {"_id": this.id,"desc": this.description,"slides": this.deserializeSlides,"thumbnail": this.thumbnail,"title": this.title,"user_id":this.user_id }
+	var json = {"_id": this.id,"desc": this.description,"slides": this.deserializeSlides(),"thumbnail": this.thumbnail,"title": this.title,"user_id":this.user_id }
 	return json;
 };
 
@@ -24,12 +24,15 @@ Slideshow.prototype.serializeSlides = function(slides_json){
 	var slides = [];
 	
 	for(var i=0;i<slides_json.length;i++){
-		var slide = new Slide(slides_json[i]);
-		slides.push(slide);
+		slides.push(new Slide(slides_json[i]));
 	}
 	return slides;
 };
 
 Slideshow.prototype.deserializeSlides = function(){
-	return JSON.parse( '[' + this.slides.toString() + ']' );
+	var slides_json = [];
+	for(var i=0;i<this.slides.length;i++){
+		slides_json.push(this.slides[i].toJSON());
+	}
+	return slides_json;
 };

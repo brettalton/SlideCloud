@@ -12,7 +12,7 @@ var Slide = function(json) {
 };
 
 Slide.prototype.toJSON = function(){
-	var json = {"_id": this.id,"stage": this.stage,"img_src": this.img_src,"slide_count": this.slide_count, "slide_headline": this.slide_headline, "slide_lead_text": slide_lead_text}
+	var json = {"_id": this.id,"stage": this.stage,"img_src": this.img_src,"slide_count": this.slide_count}//, "slide_headline": this.slide_headline, "slide_lead_text": slide_lead_text}
 	return json;
 };
 
