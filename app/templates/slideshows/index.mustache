@@ -1,12 +1,12 @@
 {{>shared/navbar_fixed_top_logged_in}}
 {{>shared/modal/new_slideshow}}
 
-<section class="blueBackground" style="margin-left:-20px; margin-right:-20px;">
+<section class="blueBackground slideshowOverviewHeader">
   <div class="container">
     <h1 class="lead" style="color: white;">{{headline}}</h1>
   </div>
 </section>
-<div class="container-fluid">
+<div class="container-fluid browserHeight">
   <div class="row-fluid">
     <!-- Sidebar content *************************************** -->
     <div class="span2">
@@ -33,7 +33,7 @@
     <div class="span10">	
     	<br />
     	<br />
-    	<ul class="thumbnails span7" style="text-align: center;">
+    	<ul class="thumbnails span7 slideshowOverview">
     		{{#slideshows}}
     		  {{>/slideshows/slideshow}}
     		{{/slideshows}}
@@ -47,19 +47,29 @@
     <!-- ******************************************************* -->
   </div>
 </div>
+
 {{>/shared/footer}}
 
 <script>
+  var connection = new ConnectionManager('http://localhost:3000/');
+
   var showModal = function() {
     $('#new_slideshow_modal').modal('show')
   };
 
+  var createFirstSlide = function() {
+    var json = '{"stage":{"attrs":{"width":960,"height":540,"visible":true,"listening":true,"opacity":1,"x":0,"y":0,"scale":{"x":1,"y":1},"rotation":0,"offset":{"x":0,"y":0},"draggable":false},"nodeType":"Stage","children":[{"attrs":{"clearBeforeDraw":true,"visible":true,"listening":true,"opacity":1,"x":0,"y":0,"scale":{"x":1,"y":1},"rotation":0,"offset":{"x":0,"y":0},"draggable":false},"nodeType":"Layer","children":[]}]}}';
+    
+    var url = "/slideshows/" + $("li.slideshow_thumb:last-child").attr('id') + "/slides";
+    
+    connection.httpPostRequest(url, json, function(){}); 
+  };
+
   var createSlideshow = function() {
-    var connection = new ConnectionManager('http://localhost:3000/');
     var slideshowTitle = $('#slideshow_title').val();
     var slideshowDesc = $('#slideshow_desc').val();
     var data = JSON.stringify({ "title": slideshowTitle, "desc": slideshowDesc});
-  
+   
   var callback = function(data) {
     $.ajax({
   		url: connection.appURL + "slideshows",
@@ -73,7 +83,8 @@
         $('.thumbnails').append(c);   
         if ($('h1').html() == 'Create a new Slideshow!')
           $('h1').html('Your Slideshows');
-  		}
+        createFirstSlide();
+      }
   	});
   };
   connection.httpPostRequest('slideshows', data, callback);

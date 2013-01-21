@@ -31,17 +31,19 @@
 	cursor:pointer;
 }
 
+#toolbar {
+  margin-top: -32px;
+}
+
 #toolbar .navbar{
 	height:36px;
 	margin-bottom:10px;
 }
 
 #toolbar .navbar-inner {
-	height:35px;
-	min-height:35px;
-	//background-color:#E5DCC3;
-	//background-image: linear-gradient(to bottom, #C09853, #C09853);
-	//border-color:#C09853;
+  height:50px; 
+  background: #F5F5F5; 
+  border:none; 
 }
 
 .selected {

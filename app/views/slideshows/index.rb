@@ -30,6 +30,7 @@ module Views
     	def slideshows
     		@slideshows.map do |s|
     			{
+            :id => s.id,
     				:title => s.title,
             :desc => s.desc,
             :thumbnail => s.thumbnail,
