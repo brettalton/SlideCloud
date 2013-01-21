@@ -15,7 +15,7 @@ module Views
       end
 
     	def link_new
-    		link_to_function '... a new Slideshow!', 'showModal()', :class => "breadcrump lead"
+    		link_to_function '... a new Slideshow!', 'showModal()', :class => "breadcrump"
     	end
       
       def form

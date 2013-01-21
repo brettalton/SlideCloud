@@ -1,66 +1,66 @@
 {{>shared/navbar_fixed_top_logged_in}}
 {{>shared/modal/new_slideshow}}
 
-<section>
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <!-- Sidebar content *************************************** -->
-      <div class="span2">
-      
-        <ul class="nav nav-pills nav-stacked">
-          <!-- <li>
-            <h2>my...</h2>
-            <h4><a href="#" >... Slideshows!</a></h4>
-          </li> -->
-          <li>
-            <h2 class="lead">create...</h2>
-            <h4>{{link_new}}</h4> </br> 
-          </li>
-        </ul>
-      
-      </div>
-      <!-- ******************************************************* -->
-    
-    
-      <!-- Main content ****************************************** -->
-      <div class="span10">
-    
-      	<h1>{{headline}}</h1>
-      	<br />
-      	<br />
-
-      	<ul class="thumbnails span7" style="text-align: center;">
-      		{{#slideshows}}
-      		  {{>/slideshows/slideshow}}
-      		{{/slideshows}}
-      	</ul>
-
-      	<br />
-    
-        <!-- JUST FOR TESTING -->
-        <!-- <img src="{{fb_profile_picture}}">
-                             
-                             {{fb_user_name}} -->
-        <!-- **************** -->
-    
-    
-      </div>
-      <!-- ******************************************************* -->
-    
-    </div>
+<section class="blueBackground" style="margin-left:-20px; margin-right:-20px;">
+  <div class="container">
+    <h1 class="lead" style="color: white;">{{headline}}</h1>
   </div>
 </section>
-<script>
-var showModal = function() {
-  $('#new_slideshow_modal').modal('show')
-};
+<div class="container-fluid">
+  <div class="row-fluid">
+    <!-- Sidebar content *************************************** -->
+    <div class="span2">
+      <br>
+      <br>
+      <ul class="nav nav-pills nav-stacked">
+        <li>
+          <p>
+            create...<br>
+            {{link_new}}
+          </p> 
+        </li>
+        <li>
+          <p>
+            upload... <br>
+            <a href="assetmanager/index">...pictures</a>
+          </p>
+        </li>
+      </ul>
+    </div>
+    <!-- ******************************************************* -->
+    
+    <!-- Main content ****************************************** -->
+    <div class="span10">	
+    	<br />
+    	<br />
+    	<ul class="thumbnails span7" style="text-align: center;">
+    		{{#slideshows}}
+    		  {{>/slideshows/slideshow}}
+    		{{/slideshows}}
+    	</ul>
+    	<br />
+      <!-- JUST FOR TESTING -->
+      <!-- <img src="{{fb_profile_picture}}">
+           {{fb_user_name}} -->
+      <!-- **************** -->
+    </div>
+    <!-- ******************************************************* -->
+  </div>
+</div>
+{{>/shared/footer}}
 
-var createSlideshow = function() {
-  var connection = new ConnectionManager('http://localhost:3000/');
-  var slideshowTitle = $('#slideshow_title').val();
-  var slideshowDesc = $('#slideshow_desc').val();
-  var data = JSON.stringify({ "title": slideshowTitle, "desc": slideshowDesc});
+<script>
+  var showModal = function() {
+    $('#new_slideshow_modal').modal('show')
+  };
+
+  var createSlideshow = function() {
+    var connection = new ConnectionManager('http://localhost:3000/');
+    var slideshowTitle = $('#slideshow_title').val();
+    var slideshowDesc = $('#slideshow_desc').val();
+    var data = JSON.stringify({ "title": slideshowTitle, "desc": slideshowDesc});
   
+<<<<<<< HEAD
   var callback = function(data) {
     $.ajax({
   		url: connection.appURL + "slideshows",
@@ -77,7 +77,25 @@ var createSlideshow = function() {
   		}
   	});
   };
+=======
+    var callback = function(data) {
+      $.ajax({
+    		url: connection.appURL + "slideshows",
+    		type: "GET",
+    		contentType: 'application/json; charset=utf-8',
+    		dataType: "html",
+    		data: data,
+    		success: function(data){
+      		var c = $("li.slideshow_thumb:last-child", data);
+          $('#new_slideshow_modal').modal('hide')
+          $('.thumbnails').append(c);   
+          if ($('h1').html() == 'Create a new Slideshow!')
+            $('h1').html('Your Slideshows'); 
+    		}
+    	});
+    };
+>>>>>>> 9205b1a40d46d0f87869c2ef351f178f2f0762d4
   
-  connection.httpPostRequest('slideshows', data, callback);
-};
+    connection.httpPostRequest('slideshows', data, callback);
+  };
 </script>
