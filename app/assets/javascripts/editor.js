@@ -12,8 +12,10 @@ Editor.prototype.init = function(){
   //adds event Listner for selections on slides
   _this = this;
   window.addEventListener('slideSelectedEvent', function(e) { 
-    var json = JSON.stringify(_this.selectedSlide().stage);
-    _this.actual_stage = Kinetic.Node.create(json,'editor_canvas_container');
+    if(_this.selectedSlide() != undefined ){
+      var json = JSON.stringify(_this.selectedSlide().stage);
+      _this.actual_stage = Kinetic.Node.create(json,'editor_canvas_container');
+    }
   });
   $( "#slidesbar" ).sortable();
   $("#thumbs_container").selectable();
@@ -28,6 +30,9 @@ Editor.prototype.loadSlideshow = function(){
     // set Slideshow variables
     _this.loaded_slideshow = new Slideshow(data);
     _this.slideshow = new Slideshow(data);
+    if(_this.slideshow.slides.length == []){
+      _this.createNewSlide();
+    } 
   });
 };
 
@@ -92,7 +97,7 @@ Editor.prototype.addSlide = function(data){
   var id = data["_id"];
   var src = "http://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/White_and_yellow_flower.JPG/250px-White_and_yellow_flower.JPG";
   var slide = new Slide(data);
-  this.slideshow.push(new Slide(data));
+  editor.slideshow.slides.push(new Slide(data));
   $('#slidesbar').append('<li id="' + id + '" class="slide_thumb_container">\
         <img class="thumbnail slide_thumb" src="' + src + '">\
       </li>');

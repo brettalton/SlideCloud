@@ -22,7 +22,8 @@ Slideshow.prototype.toString = function(){
 
 Slideshow.prototype.serializeSlides = function(slides_json){
 	var slides = [];
-	
+	if(slides_json == undefined)
+		return slides
 	for(var i=0;i<slides_json.length;i++){
 		slides.push(new Slide(slides_json[i]));
 	}
