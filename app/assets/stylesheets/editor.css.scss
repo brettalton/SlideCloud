@@ -16,7 +16,7 @@
 }
 
 #slidesbar {
-	width:150px;
+	width:170px;
 	overflow-y:scroll;
 	height:540px;
 	background-color:#FCF8E3;
@@ -28,6 +28,7 @@
 	float:none;
 	margin:0px;
 	padding:10px;
+  padding-right: 20px !important;
 	cursor:pointer;
 }
 
@@ -41,19 +42,18 @@
 }
 
 #toolbar .navbar-inner {
-  height:50px; 
   background: #F5F5F5; 
   border:none; 
 }
 
 .selected {
-	border: 3px solid #777;
-	background-color: #777;
+/*  border: 3px solid #777;
+*/	background-color: #777;
 }
 
 .ui-selected {
-	border: 3px solid #777;
-	background-color: #777;
+/*  border: 3px solid #777;
+*/	background-color: #777;
 }
 
 .carousel-caption textarea {

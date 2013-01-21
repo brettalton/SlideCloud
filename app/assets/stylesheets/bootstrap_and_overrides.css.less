@@ -47,10 +47,11 @@
     padding: 0;
     }
   }
-  .browserHeight {
-    position:relative !important; 
-    min-height: 100% !important;
-  }
+
+.browserHeight {
+  position:relative !important; 
+  min-height: 100% !important;
+}
 
 body {
   position: absolute;
@@ -59,20 +60,23 @@ body {
   padding-top: 0;
 }
 
+.navbar-fixed-top {
+  margin-bottom: 0px !important;
+}
+
 section {
   padding-top: 120px;
   min-width: 100%;
+  margin-left: -20px;
+  margin-right: -20px
 }
 
 .blueBackground {
   background-color:#2f9ac6 !important; 
+  color: white;
 }
 .yellowBackground {
    background: rgb(251,214,101) !important; 
-}
-
-.container {
-  position: static;
 }
 
 #sign_in h1 {
@@ -91,7 +95,10 @@ p {
 }
 
 .alert {
-	margin-top:20px;
+  position: absolute;
+  margin: 20px;
+	margin-top:60px !important;
+  width: 90%;
 }
 
 .hero-unit {
@@ -99,7 +106,7 @@ p {
 }
 
 .notice {
-	margin-top:20px;
+	margin-top:60px;
 }
 
 .omniauthable {
