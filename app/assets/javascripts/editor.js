@@ -10,9 +10,10 @@ var Editor = function(appBaseUrl){
 
 Editor.prototype.init = function(){  
   //adds event Listner for selections on slides
+  _this = this;
   window.addEventListener('slideSelectedEvent', function(e) { 
-    var json = JSON.stringify(this.selectedSlide().stage);
-    this.actual_stage = Kinetic.Node.create(json,'editor_canvas_container');
+    var json = JSON.stringify(_this.selectedSlide().stage);
+    _this.actual_stage = Kinetic.Node.create(json,'editor_canvas_container');
   });
   $( "#slidesbar" ).sortable();
   $("#thumbs_container").selectable();
@@ -51,11 +52,12 @@ Editor.prototype.createEmptyStage = function(){
 };
 
 Editor.prototype.getSelectedImageSrc = function(){
-  createImageObject($('.ui-selected:first').data('src'));
+  this.createImageObject($('.ui-selected:first').data('src'));
 };
 
 Editor.prototype.createImageObject = function(src){
   var imageObj = new Image();
+  var layer = this.actual_stage. 
 
   imageObj.onload = function() {
     var img = new Kinetic.Image({
