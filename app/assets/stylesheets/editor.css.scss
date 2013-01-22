@@ -16,7 +16,7 @@
 }
 
 #slidesbar {
-	width:150px;
+	width:170px;
 	overflow-y:scroll;
 	height:540px;
 	background-color:#FCF8E3;
@@ -28,7 +28,12 @@
 	float:none;
 	margin:0px;
 	padding:10px;
+  padding-right: 20px !important;
 	cursor:pointer;
+}
+
+#toolbar {
+  margin-top: -32px;
 }
 
 #toolbar .navbar{
@@ -37,21 +42,18 @@
 }
 
 #toolbar .navbar-inner {
-	height:35px;
-	min-height:35px;
-	//background-color:#E5DCC3;
-	//background-image: linear-gradient(to bottom, #C09853, #C09853);
-	//border-color:#C09853;
+  background: #F5F5F5; 
+  border:none; 
 }
 
 .selected {
-	border: 3px solid #777;
-	background-color: #777;
+/*  border: 3px solid #777;
+*/	background-color: #777;
 }
 
 .ui-selected {
-	border: 3px solid #777;
-	background-color: #777;
+/*  border: 3px solid #777;
+*/	background-color: #777;
 }
 
 .carousel-caption textarea {
