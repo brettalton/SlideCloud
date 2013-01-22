@@ -14,7 +14,8 @@ Editor.prototype.init = function(){
   _this = this;
   window.addEventListener('slideSelectedEvent', function(e) { 
     _this.actual_stage.removeChildren();
-    _this.actual_stage.add(_this.selectedSlide().layer);
+    var layer = Kinetic.Node.create(JSON.stringify(_this.selectedSlide().layer))
+    _this.actual_stage.add(layer);
   });
 
   $( "#slidesbar" ).sortable();
@@ -83,8 +84,8 @@ Editor.prototype.saveSlideshow = function(){
 };
 
 Editor.prototype.createNewSlide = function(){
-  var new_layer = new Kinetic.Layer();
-  var json = '{"layer": ' + new_layer.toJSON() + '}';
+  var new_layer = (new Kinetic.Layer()).toJSON();
+  var json = '{"layer": ' + new_layer + '}';
   var url = "/slideshows/" + this.slideshow.id + "/slides";
   var _this = this;
   this.connection.httpPostRequest(url, json, this.addSlide);

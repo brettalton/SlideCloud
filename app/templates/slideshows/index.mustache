@@ -59,8 +59,8 @@
 
   var createFirstSlide = function(){
     var connection = new ConnectionManager('http://localhost:3000/');
-    var new_layer = new Kinetic.Layer();
-    var json = '{"layer": ' + new_layer.toJSON() + ', "slide_count": 1}';
+    var new_layer = (new Kinetic.Layer()).toJSON();
+    var json = '{"layer": ' + new_layer + ', "slide_count": 1}';
     var id = $("li.slideshow_thumb:last-child").attr('id');
     var url = "/slideshows/" + id + "/slides";
     connection.httpPostRequest(url, json, function(){});
