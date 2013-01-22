@@ -54,6 +54,15 @@
     $('#new_slideshow_modal').modal('show')
   };
 
+  var createNewSlide = function(){
+    var connection = new ConnectionManager('http://localhost:3000/');
+    var new_layer = new Kinetic.Layer();
+    var json = '{"layer": ' + new_layer.toJSON() + '}';
+    var url = "/slideshows/" + this.slideshow.id + "/slides";
+    var _this = this;
+    connection.httpPostRequest(url, json, function(){});
+  };
+
   var createSlideshow = function() {
     var connection = new ConnectionManager('http://localhost:3000/');
     var slideshowTitle = $('#slideshow_title').val();
@@ -73,6 +82,7 @@
         $('.thumbnails').append(c);   
         if ($('h1').html() == 'Create a new Slideshow!')
           $('h1').html('Your Slideshows');
+        createNewSlide();
   		}
   	});
   };

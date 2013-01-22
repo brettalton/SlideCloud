@@ -5,18 +5,18 @@ var Editor = function(appBaseUrl){
   this.connection = new ConnectionManager(appBaseUrl);
   this.loaded_slideshow;
   this.slideshow;
-  this.actual_stage;
+  this.actual_stage = this.createEmptyStage();
 };
 
 Editor.prototype.init = function(){  
+
   //adds event Listner for selections on slides
   _this = this;
   window.addEventListener('slideSelectedEvent', function(e) { 
-    if(_this.selectedSlide() != undefined ){
-      var json = JSON.stringify(_this.selectedSlide().stage);
-      _this.actual_stage = Kinetic.Node.create(json,'editor_canvas_container');
-    }
+    _this.actual_stage.removeChildren();
+    _this.actual_stage.add(_this.selectedSlide().layer);
   });
+
   $( "#slidesbar" ).sortable();
   $("#thumbs_container").selectable();
   this.loadSlideshow();
@@ -30,9 +30,7 @@ Editor.prototype.loadSlideshow = function(){
     // set Slideshow variables
     _this.loaded_slideshow = new Slideshow(data);
     _this.slideshow = new Slideshow(data);
-    if(_this.slideshow.slides.length == []){
-      _this.createNewSlide();
-    } 
+    $(".slide_thumb_container:first").click();
   });
 };
 
@@ -51,8 +49,6 @@ Editor.prototype.createEmptyStage = function(){
     width: 960,
     height: 540
   });
-  layer = new Kinetic.Layer();
-  stage.add(layer);
   return stage;
 };
 
@@ -62,8 +58,9 @@ Editor.prototype.getSelectedImageSrc = function(){
 
 Editor.prototype.createImageObject = function(src){
   var imageObj = new Image();
-  var layer = this.actual_stage. 
+  var layer = this.actual_stage.getChildren()[0]; 
 
+  _this = this;
   imageObj.onload = function() {
     var img = new Kinetic.Image({
       image: imageObj,
@@ -74,7 +71,7 @@ Editor.prototype.createImageObject = function(src){
     // add the shape to the layer
     layer.add(img);
     // add the layer to the stage
-    this.actual_stage.add(layer);
+    _this.actual_stage.add(layer);
   }
   imageObj.src = src;
 };
@@ -86,8 +83,8 @@ Editor.prototype.saveSlideshow = function(){
 };
 
 Editor.prototype.createNewSlide = function(){
-  var new_stage = this.createEmptyStage();
-  var json = '{"stage": ' + new_stage.toJSON() + '}';
+  var new_layer = new Kinetic.Layer();
+  var json = '{"layer": ' + new_layer.toJSON() + '}';
   var url = "/slideshows/" + this.slideshow.id + "/slides";
   var _this = this;
   this.connection.httpPostRequest(url, json, this.addSlide);
@@ -96,7 +93,6 @@ Editor.prototype.createNewSlide = function(){
 Editor.prototype.addSlide = function(data){
   var id = data["_id"];
   var src = "http://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/White_and_yellow_flower.JPG/250px-White_and_yellow_flower.JPG";
-  var slide = new Slide(data);
   editor.slideshow.slides.push(new Slide(data));
   $('#slidesbar').append('<li id="' + id + '" class="slide_thumb_container">\
         <img class="thumbnail slide_thumb" src="' + src + '">\
@@ -110,6 +106,5 @@ $(document).ready(function() {
     editor = new Editor("http://localhost:3000");  
     editor.init();
     setSelectableSlides();
-    $(".slide_thumb_container:first").click();
   }
 });
